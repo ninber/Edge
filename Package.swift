@@ -1,15 +1,15 @@
-// swift-tools-version:4.0
+// swift-tools-version:5.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
-    name: "Lightning",
+    name: "Edge",
     products: [
         .library(
-            name: "Lightning",
+            name: "Edge",
             targets: [
-                "Lightning",
+                "Edge",
                 "POSIX",
                 "TCP",
                 "HTTP",
@@ -29,7 +29,7 @@ let package = Package(
         .target(name: "TCP", dependencies: ["POSIX", "IOStream"]),
         .target(name: "HTTP", dependencies: [ "POSIX", "IOStream", "TCP", "CHTTPParser", "PromiseKit", "PathToRegex", "Regex"]),
         .target(name: "IOStream", dependencies: ["POSIX", "StreamKit"]),
-        .target(name: "Lightning", dependencies: ["TCP", "IOStream", "HTTP"]),
+        .target(name: "Edge", dependencies: ["TCP", "IOStream", "HTTP"]),
         .testTarget(name: "HTTPTests", dependencies: ["HTTP"]),
         .testTarget(name: "IOStreamTests", dependencies: ["IOStream"]),
         .testTarget(name: "TCPTests", dependencies: ["TCP"]),
